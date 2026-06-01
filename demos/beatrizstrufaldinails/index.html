@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beatriz Strufaldi — Nail Designer | Porto</title>
+<meta name="description" content="Beatriz Strufaldi, Nail Designer no Porto. Especialista em extensões Molde F1, Nail Design e Formação Profissional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nude:#C4A882;--nude2:#D4BA9A;--nude3:#E8D5BC;
+  --nude-dim:rgba(196,168,130,.12);--nude-glow:rgba(196,168,130,.3);
+  --cream:#FAFAF8;--cream2:#F3EDE4;
+  --gold:#C9A84C;--dark:#2C2218;--dark2:#3D2E20;
+  --mid:#7A6452;--light:#B09880;
+  --border:rgba(196,168,130,.2);--border2:rgba(196,168,130,.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 clamp(1rem,4vw,2.5rem);background:rgba(250,250,248,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 30px rgba(44,34,24,.06)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;letter-spacing:.04em;color:var(--dark)}
+.nav-brand span{color:#8B5E3C;font-weight:600}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.7rem;font-weight:400;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);transition:color .2s}
+.nav-links a:hover{color:var(--nude)}
+.nav-cta{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--dark);padding:.55rem 1.4rem;transition:background .22s}
+.nav-cta:hover{background:var(--dark2)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1px;background:var(--dark);border-radius:2px;transition:transform .28s,opacity .22s,width .28s}
+.hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;width:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mob-menu{position:fixed;inset:0;z-index:90;background:rgba(250,250,248,.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity .32s}
+.mob-menu.open{opacity:1;pointer-events:all}
+.mob-menu a{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,6vw,2.4rem);color:var(--dark);transition:color .2s}
+.mob-menu a:hover{color:var(--nude)}
+
+/* HERO */
+.hero{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.75)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(44,34,24,.92) 0%,rgba(44,34,24,.4) 55%,rgba(44,34,24,.1) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:calc(70px + 2rem) clamp(1rem,4vw,2.5rem) clamp(3rem,8vh,6rem);width:100%}
+.hero-eyebrow{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--nude3);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;animation:fadeUp .7s both}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--nude)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6.5vw,5.5rem);font-weight:400;line-height:1.05;letter-spacing:-.02em;color:var(--cream);margin-bottom:1.5rem;max-width:14ch;animation:fadeUp .85s .08s both}
+.hero h1 em{font-style:italic;color:var(--nude2)}
+.hero-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(.95rem,1.8vw,1.25rem);color:rgba(250,250,248,.6);line-height:1.65;max-width:42ch;margin-bottom:2.5rem;animation:fadeUp .85s .16s both;border-left:2px solid var(--nude);padding-left:1.2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .85s .24s both}
+.hero-meta{margin-top:2.5rem;display:flex;gap:2.5rem;flex-wrap:wrap;animation:fadeUp .85s .32s both}
+.hero-meta-item{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,248,.35)}
+.hero-meta-item span{display:block;color:var(--nude2);font-size:.82rem;letter-spacing:.05em;margin-top:.2rem;font-family:'Playfair Display',serif;font-style:italic}
+
+/* BTNS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.9rem 2rem;cursor:pointer;border:none;transition:all .24s cubic-bezier(.16,1,.3,1)}
+.btn-nude{background:var(--nude);color:var(--dark);box-shadow:0 2px 16px var(--nude-glow)}
+.btn-nude:hover{background:var(--nude2);transform:translateY(-2px);box-shadow:0 8px 28px var(--nude-glow)}
+.btn-outline-light{background:transparent;color:var(--cream);border:1px solid rgba(250,250,248,.28)}
+.btn-outline-light:hover{border-color:var(--nude);color:var(--nude)}
+
+/* SECTION */
+.sec{padding:clamp(4rem,10vh,7rem) clamp(1rem,4vw,2.5rem)}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-tag{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--nude);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sec-tag::before{content:'';width:22px;height:1px;background:var(--nude)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;color:var(--dark);margin-bottom:1rem}
+.sec-title em{font-style:italic;color:var(--nude)}
+
+/* HISTÓRIA */
+.historia{background:var(--cream2)}
+.historia-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(3rem,7vw,6rem);align-items:center}
+.historia-img{position:relative;min-height:520px}
+.historia-img-main{width:82%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--border)}
+.historia-img-accent{position:absolute;bottom:-2rem;right:0;width:52%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--border);box-shadow:0 12px 40px rgba(44,34,24,.1)}
+.historia-num{position:absolute;top:-1rem;left:-1rem;font-family:'Playfair Display',serif;font-size:7rem;font-weight:700;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(196,168,130,.12);line-height:1;user-select:none;pointer-events:none}
+.historia-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2vw,1.4rem);color:var(--dark);line-height:1.55;border-left:2px solid var(--nude);padding-left:1.4rem;margin-bottom:2rem}
+.historia-quote em{color:var(--nude);font-style:normal}
+.historia-body{font-size:.93rem;color:var(--mid);line-height:1.92;margin-bottom:.9rem}
+.historia-body strong{color:var(--dark);font-weight:500}
+.historia-sig{margin-top:2rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--nude);display:flex;align-items:center;gap:.8rem}
+.historia-sig::before{content:'';width:28px;height:1px;background:var(--nude)}
+
+/* SERVIÇOS */
+.servicos{background:var(--dark)}
+.servicos-inner{max-width:1100px;margin:0 auto}
+.servicos .sec-tag{color:rgba(232,213,188,.6)}
+.servicos .sec-tag::before{background:rgba(232,213,188,.4)}
+.servicos .sec-title{color:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05);margin-top:3.5rem}
+.svc-card{background:var(--dark);overflow:hidden;transition:background .3s}
+.svc-card:hover{background:var(--dark2)}
+.svc-img-wrap{overflow:hidden;position:relative}
+.svc-img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1);filter:brightness(.8) saturate(.75)}
+.svc-card:hover .svc-img{transform:scale(1.06);filter:brightness(.95) saturate(1)}
+.svc-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(44,34,24,.8) 0%,transparent 50%)}
+.svc-badge{position:absolute;top:1rem;right:1rem;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;background:var(--nude);color:var(--dark);padding:.25rem .6rem;z-index:2}
+.svc-body{padding:1.8rem 1.8rem 2.2rem}
+.svc-num{font-size:.55rem;letter-spacing:.2em;color:rgba(196,168,130,.5);margin-bottom:.6rem;display:block}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:400;color:var(--cream);margin-bottom:.7rem}
+.svc-name em{font-style:italic;color:var(--nude2)}
+.svc-desc{font-size:.82rem;color:rgba(250,250,248,.45);line-height:1.8;font-weight:300}
+
+/* GALERIA */
+.galeria{background:var(--cream2)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:.5rem;margin-top:3rem}
+.gal-item{overflow:hidden;position:relative;cursor:pointer}
+.gal-item:nth-child(1){grid-column:1/3;grid-row:1/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(44,34,24,.55),transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1rem 1.1rem}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-label{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--cream);font-style:italic}
+
+/* AGENDAMENTO */
+.agendamento{background:var(--cream);border-top:1px solid var(--border2)}
+.ag-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,6rem);align-items:center}
+.ag-body{font-size:.93rem;color:var(--mid);line-height:1.9;margin-bottom:2rem;font-weight:300}
+.ag-details{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.ag-detail{display:flex;align-items:flex-start;gap:.8rem;font-size:.84rem;color:var(--mid)}
+.ag-detail-icon{font-size:.95rem;flex-shrink:0;margin-top:.05rem}
+.ag-detail strong{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);font-weight:500;margin-bottom:.15rem}
+.ag-right{background:var(--cream2);border:1px solid var(--border);padding:2.5rem}
+.ag-card-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--nude);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.ag-card-tag::before{content:'';width:18px;height:1px;background:var(--nude)}
+.ag-card-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:400;color:var(--dark);margin-bottom:.8rem;line-height:1.2}
+.ag-card-title em{font-style:italic;color:var(--nude)}
+.ag-card-sub{font-size:.84rem;color:var(--mid);line-height:1.78;margin-bottom:2rem;font-weight:300}
+.btn-wa{width:100%;justify-content:center;background:var(--nude);color:var(--dark);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:1.1rem 2rem;display:flex;align-items:center;gap:.7rem;box-shadow:0 4px 20px var(--nude-glow);transition:all .24s cubic-bezier(.16,1,.3,1)}
+.btn-wa:hover{background:var(--nude2);transform:translateY(-2px);box-shadow:0 10px 32px var(--nude-glow)}
+.btn-wa svg{width:18px;height:18px;flex-shrink:0}
+.ag-card-note{margin-top:.9rem;font-size:.68rem;color:var(--light);text-align:center;letter-spacing:.06em}
+
+/* FLOAT */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:200;width:52px;height:52px;border-radius:50%;background:var(--nude);color:var(--dark);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px var(--nude-glow);transition:transform .24s,box-shadow .24s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 32px var(--nude-glow)}
+.wa-float svg{width:24px;height:24px}
+
+/* FOOTER */
+footer{padding:2rem clamp(1rem,4vw,2.5rem);background:var(--dark)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:'Playfair Display',serif;font-size:.92rem;color:var(--nude3);letter-spacing:.04em}
+.footer-built{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,168,130,.3)}
+.footer-built a{color:var(--nude);opacity:.6;transition:opacity .2s}
+.footer-built a:hover{opacity:1}
+
+.ag-map{margin-top:.5rem;border:1px solid var(--border);overflow:hidden}
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .75s .1s cubic-bezier(.16,1,.3,1),transform .75s .1s cubic-bezier(.16,1,.3,1)}
+.reveal-r.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .historia-inner{grid-template-columns:1fr}
+  .historia-img{display:none}
+  .ag-inner{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .gal-item:nth-child(1){grid-column:1/-1;grid-row:1}
+  .gal-item:nth-child(n+2){grid-column:auto;grid-row:auto}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .svc-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .gal-item:nth-child(1){grid-column:1/-1}
+}
+@media(max-width:480px){
+  .hero h1{font-size:clamp(2.2rem,9vw,3rem)}
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .gal-item:nth-child(1){grid-column:1}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Beatriz <span>Strufaldi</span></a>
+    <ul class="nav-links">
+      <li><a href="#historia">A Minha História</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#agendar">Agendar</a></li>
+    </ul>
+    <a href="https://wa.me/351000000000?text=Olá%20Beatriz,%20gostaria%20de%20agendar" class="nav-cta btn">Agendar</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#historia">A Minha História</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#agendar">Agendar</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?fm=jpg&q=85&w=1600&fit=crop&ixlib=rb-4.1.0" alt="Nail design elegante">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Porto, Portugal · @nails.beatrizstrufaldi</p>
+    <h1>Beatriz<br><em>Strufaldi</em><br>Nail Designer</h1>
+    <p class="hero-quote">"Eu não comecei por amor.<br>Mas o amor nasceu no processo." ✨</p>
+    <div class="hero-actions">
+      <a href="#agendar" class="btn btn-nude">Agendar Agora</a>
+      <a href="#historia" class="btn btn-outline-light">A Minha História</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Especialidade<span>Molde F1</span></div>
+      <div class="hero-meta-item">Localização<span>Porto</span></div>
+      <div class="hero-meta-item">Marcações<span>Via WhatsApp</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA -->
+<section class="sec historia" id="historia">
+  <div class="historia-inner">
+    <div class="historia-img reveal">
+      <span class="historia-num">B</span>
+      <img class="historia-img-main" src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?fm=jpg&q=82&w=700&fit=crop&ixlib=rb-4.1.0" alt="Nail designer a trabalhar">
+      <img class="historia-img-accent" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?fm=jpg&q=82&w=500&fit=crop&ixlib=rb-4.1.0" alt="Detalhe de unhas">
+    </div>
+    <div class="reveal-r">
+      <p class="sec-tag">A minha história</p>
+      <blockquote class="historia-quote">"Quem olha para o meu trabalho hoje pode imaginar que sempre foi um sonho. Mas a verdade é outra — eu não comecei por <em>amor</em>, comecei por <em>coragem</em>."</blockquote>
+      <p class="historia-body">Cansei da rotina CLT. De sentir que não estava a viver algo que fosse verdadeiramente meu. Decidi construir o meu próprio caminho — e foi exatamente nessa escolha que encontrei a paixão.</p>
+      <p class="historia-body">Quando percebi que, através dos detalhes, podia <strong>transformar a forma como uma mulher se sente</strong>… tudo fez sentido. Estudei, aperfeiçoei técnicas, busquei formações — e encontrei no <strong>Alongamento F1</strong> e no acabamento limpo a assinatura do meu trabalho.</p>
+      <p class="historia-body">Hoje, no Porto, recebo mulheres de diferentes partes do mundo. Todas buscando o mesmo: <strong>sentir-se elegantes, cuidadas e confiantes</strong>. Cada cutícula limpa, cada brilho uniforme, cada formato simétrico é uma forma de mostrar que elas merecem esse cuidado.</p>
+      <p class="historia-body">E quando uma cliente olha para as mãos e sorri… aí lembro por que escolhi este caminho. ✨</p>
+      <p class="historia-sig">Beatriz Strufaldi</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="sec servicos" id="servicos">
+  <div class="servicos-inner">
+    <div class="reveal">
+      <p class="sec-tag">O que faço</p>
+      <h2 class="sec-title">Serviços que <em>transformam</em></h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-img-wrap">
+          <img class="svc-img" src="https://images.unsplash.com/photo-1604654894611-6973b376cbde?fm=jpg&q=82&w=600&fit=crop&ixlib=rb-4.1.0" alt="Molde F1">
+          <div class="svc-overlay"></div>
+          <span class="svc-badge">Especialidade</span>
+        </div>
+        <div class="svc-body">
+          <span class="svc-num">01 ——</span>
+          <h3 class="svc-name">Extensões <em>Molde F1</em></h3>
+          <p class="svc-desc">A assinatura do meu trabalho. Extensões precisas, duradouras e com acabamento absolutamente limpo — o resultado que distingue.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img-wrap">
+          <img class="svc-img" src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?fm=jpg&q=82&w=600&fit=crop&ixlib=rb-4.1.0" alt="Nail Design">
+          <div class="svc-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <span class="svc-num">02 ——</span>
+          <h3 class="svc-name"><em>Nail</em> Design</h3>
+          <p class="svc-desc">Arte e técnica ao serviço da tua identidade. De estilos minimalistas a criações especiais — sempre com refinamento e elegância.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-img-wrap">
+          <img class="svc-img" src="https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?fm=jpg&q=82&w=600&fit=crop&ixlib=rb-4.1.0" alt="Formação">
+          <div class="svc-overlay"></div>
+        </div>
+        <div class="svc-body">
+          <span class="svc-num">03 ——</span>
+          <h3 class="svc-name">Formação <em>Profissional</em></h3>
+          <p class="svc-desc">Partilho o que aprendi. Formações para quem quer dominar o Molde F1 com excelência e construir o próprio caminho.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="sec galeria" id="galeria">
+  <div class="sec-inner">
+    <div class="reveal">
+      <p class="sec-tag">Galeria</p>
+      <h2 class="sec-title">O trabalho fala <em>por si</em></h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?fm=jpg&q=85&w=900&fit=crop&ixlib=rb-4.1.0" alt="Molde F1 nude"><div class="gal-overlay"><span class="gal-label">Molde F1 · Nude</span></div></div>
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?fm=jpg&q=82&w=500&fit=crop&ixlib=rb-4.1.0" alt="Manicure elegante"><div class="gal-overlay"><span class="gal-label">Nail Design</span></div></div>
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1618606679166-7f313aa5b26f?fm=jpg&q=82&w=500&fit=crop&ixlib=rb-4.1.0" alt="Unhas elegantes"><div class="gal-overlay"><span class="gal-label">Acabamento limpo</span></div></div>
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1612887390768-fb02affea7a6?fm=jpg&q=82&w=500&fit=crop&ixlib=rb-4.1.0" alt="Manicure rosa"><div class="gal-overlay"><span class="gal-label">Verniz Gel</span></div></div>
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1736434518489-0eb84070017f?fm=jpg&q=82&w=500&fit=crop&ixlib=rb-4.1.0" alt="Arte especial"><div class="gal-overlay"><span class="gal-label">Arte especial</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDAMENTO -->
+<section class="sec agendamento" id="agendar">
+  <div class="ag-inner">
+    <div class="reveal">
+      <p class="sec-tag">Agendar</p>
+      <h2 class="sec-title">Pronta para a tua <em>transformação?</em></h2>
+      <p class="ag-body">Recebo clientes de diferentes partes do mundo no Porto. Cada visita é uma experiência de cuidado genuíno — porque tu mereces isso.</p>
+      <div class="ag-details">
+        <div class="ag-detail"><span class="ag-detail-icon">📍</span><div><strong>Localização</strong>Rua de Sá da Bandeira, 331 — 3º andar, sala 30, Porto</div></div>
+        <div class="ag-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d755.1!2d-8.61498!3d41.14963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2465c0e7b2e9b5%3A0xabcdef123!2sRua%20de%20S%C3%A1%20da%20Bandeira%20331%2C%20Porto!5e0!3m2!1spt!2spt!4v1717000000000!5m2!1spt!2spt" width="100%" height="200" style="border:0;display:block;margin-top:.8rem;filter:grayscale(20%)" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Beatriz Strufaldi Nails — Localização"></iframe>
+        </div>
+        <div class="ag-detail"><span class="ag-detail-icon">📱</span><div><strong>Marcações</strong>Via WhatsApp ou DM no Instagram</div></div>
+        <div class="ag-detail"><span class="ag-detail-icon">✨</span><div><strong>Especialidade</strong>Molde F1 · Nail Design · Formação</div></div>
+      </div>
+    </div>
+    <div class="ag-right reveal-r">
+      <p class="ag-card-tag">Reserva o teu momento</p>
+      <h3 class="ag-card-title">Fala <em>comigo</em></h3>
+      <p class="ag-card-sub">Envia mensagem pelo WhatsApp e respondo em menos de 1 hora. Vamos encontrar o melhor horário para ti.</p>
+      <a href="https://wa.me/351000000000?text=Olá%20Beatriz,%20gostaria%20de%20agendar%20uma%20visita" class="btn-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.4 5.3L2 22l4.8-1.4C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.4 1 .9-3.3-.2-.4C2.8 15.5 2.3 13.8 2.3 12c0-4.7 3.9-8.5 8.7-8.5s8.7 3.8 8.7 8.5-3.9 8.2-8.7 8.2z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+      <p class="ag-card-note">Porto · @nails.beatrizstrufaldi</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-brand">Beatriz Strufaldi · Nail Designer</p>
+    <p class="footer-built">Criado por <a href="https://fjfdigital.pt" target="_blank">FJF Digital — fjfdigital.pt</a></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/351000000000?text=Olá%20Beatriz,%20gostaria%20de%20agendar" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.4 5.3L2 22l4.8-1.4C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.4 1 .9-3.3-.2-.4C2.8 15.5 2.3 13.8 2.3 12c0-4.7 3.9-8.5 8.7-8.5s8.7 3.8 8.7 8.5-3.9 8.2-8.7 8.2z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+const hamburger=document.getElementById('hamburger');
+const mobMenu=document.getElementById('mobMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobMenu.classList.toggle('open')});
+mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('open');mobMenu.classList.remove('open')}));
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const all=[...e.target.parentElement.querySelectorAll('.reveal,.reveal-r')];
+      all.forEach((s,i)=>setTimeout(()=>s.classList.add('visible'),i*110));
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal,.reveal-r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
