@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Sorriso Novo — Medicina Dentária em Lisboa</title>
+<meta name="description" content="Clínica dentária em Lisboa. Implantologia, ortodontia, branqueamento, urgências. Marcações via WhatsApp.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #fafcfb;
+    --bg-soft: #eef6f4;
+    --mint: #2a9d8f;
+    --mint-deep: #1d6f64;
+    --mint-pale: #daf0eb;
+    --navy: #17313a;
+    --coral: #ff6f59;
+    --coral-deep: #e8543e;
+    --ink: #1b2b2e;
+    --ink-soft: #52696c;
+    --line: rgba(23, 49, 58, 0.1);
+    --white: #ffffff;
+
+    --font-display: 'Newsreader', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    background: rgba(250, 252, 251, 0.92);
+    backdrop-filter: blur(10px);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--navy);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+  }
+  .logo-mark svg { width: 18px; height: 18px; }
+  .nav-cta {
+    background: var(--coral);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--coral-deep); }
+  .nav-cta svg { width: 15px; height: 15px; }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--mint-pale);
+    color: var(--mint-deep);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero-badge svg { width: 14px; height: 14px; }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--mint); font-weight: 400; }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 32px;
+  }
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .btn {
+    padding: 15px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .btn-primary {
+    background: var(--coral);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--coral-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px -8px rgba(255, 111, 89, 0.45);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--line);
+  }
+  .btn-outline:hover { border-color: var(--navy); }
+  .btn svg { width: 18px; height: 18px; }
+
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .trust-item { display: flex; flex-direction: column; }
+  .trust-num {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--mint-deep);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .trust-label { font-size: 12.5px; color: var(--ink-soft); }
+
+  .hero-visual {
+    position: relative;
+  }
+  .hero-img {
+    aspect-ratio: 4/5;
+    background-image: url('img/consultorio.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-float-card {
+    position: absolute;
+    bottom: -24px;
+    left: -24px;
+    background: white;
+    padding: 18px 22px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px -15px rgba(23, 49, 58, 0.25);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  @media (max-width: 500px) {
+    .hero-float-card { left: 0; bottom: -18px; padding: 14px 16px; }
+  }
+  .hero-float-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--mint-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hero-float-icon svg { width: 20px; height: 20px; color: var(--mint-deep); }
+  .hero-float-text { font-size: 13px; color: var(--ink-soft); }
+  .hero-float-text strong { display: block; color: var(--navy); font-size: 15px; }
+
+  /* SECTION HEADERS */
+  .section { padding: 90px 0; }
+  .section-eyebrow {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--mint-deep);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(30px, 4.5vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--mint); font-weight: 400; }
+  .section-intro {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 48px;
+  }
+
+  /* SERVICES */
+  .services { background: var(--bg-soft); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 700px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+  .service-card {
+    background: white;
+    padding: 30px 26px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    transition: all 0.25s;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -18px rgba(23, 49, 58, 0.15);
+  }
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--mint-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .service-icon svg { width: 24px; height: 24px; color: var(--mint-deep); }
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* WHY US */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .why-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+  }
+  .why-img {
+    aspect-ratio: 4/3;
+    background-image: url('img/sorriso.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+  }
+  .why-list {
+    list-style: none;
+    margin-top: 8px;
+  }
+  .why-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .why-list li:last-child { border-bottom: none; }
+  .why-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .why-check svg { width: 13px; height: 13px; color: white; }
+  .why-text strong { display: block; color: var(--navy); font-size: 15.5px; margin-bottom: 3px; }
+  .why-text span { font-size: 14px; color: var(--ink-soft); }
+
+  /* TEAM / ABOUT */
+  .about { background: var(--bg-soft); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .about-grid { grid-template-columns: 1fr 1.2fr; gap: 64px; }
+  }
+  .about-img {
+    aspect-ratio: 3/4;
+    background-image: url('img/equipe.jpeg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+  }
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .about-cred {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .cred-item { display: flex; align-items: center; gap: 10px; }
+  .cred-item svg { width: 20px; height: 20px; color: var(--mint-deep); flex-shrink: 0; }
+  .cred-item span { font-size: 13.5px; color: var(--navy); font-weight: 600; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 900px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+  .testimonial-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 26px;
+  }
+  .stars { color: #f5b342; font-size: 15px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-text {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .author-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--mint-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--mint-deep);
+    font-size: 14px;
+  }
+  .author-name { font-size: 13.5px; font-weight: 600; color: var(--navy); }
+  .author-detail { font-size: 12px; color: var(--ink-soft); }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q {
+    padding: 22px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--navy);
+    list-style: none;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-icon {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--mint-deep);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .faq-icon::before { width: 14px; height: 1.5px; }
+  .faq-icon::after { width: 1.5px; height: 14px; transition: transform 0.3s; }
+  details[open] .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .faq-a {
+    padding: 0 0 22px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  /* CONTACT / CTA */
+  .contact { background: var(--navy); color: white; }
+  .contact h2 { color: white; }
+  .contact .section-eyebrow { color: #7fd4c4; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
+  }
+  .contact-block { margin-bottom: 24px; }
+  .contact-block-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7fd4c4;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .contact-block-value {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    display: block;
+    line-height: 1.5;
+  }
+  .map-card {
+    background: rgba(255,255,255,0.06);
+    aspect-ratio: 4/3;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .map-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+  .map-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(127, 212, 196, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .map-card-icon svg { width: 26px; height: 26px; color: #7fd4c4; }
+  .map-card-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .map-card-sub {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .contact-cta { margin-top: 32px; }
+  .contact .btn-primary { background: var(--coral); }
+  .contact .btn-primary:hover { background: var(--coral-deep); }
+
+  /* FOOTER */
+  footer {
+    background: #102128;
+    color: rgba(255,255,255,0.6);
+    padding: 32px 0;
+    font-size: 13.5px;
+    text-align: center;
+  }
+  .footer-built a { color: #7fd4c4; text-decoration: none; }
+
+  /* WhatsApp float */
+  .wa-float {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 26px -8px rgba(37, 211, 102, 0.5);
+    z-index: 100;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.5-2-4-2.5-5.8-1.2C4 5.7 3.5 8.5 4.8 11c1 2 3 4.5 4.5 7 .8 1.3 1.7 2.5 2.7 2.5s1.9-1.2 2.7-2.5c1.5-2.5 3.5-5 4.5-7 1.3-2.5.8-5.3-1.4-6.7C15.9 3 13.5 3.5 12 5.5z"/></svg>
+      </span>
+      Sorriso Novo
+    </a>
+    <a href="https://wa.me/351915678234?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20consulta" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+      Marcar consulta
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Urgências no mesmo dia
+        </div>
+        <h1>Cuidamos do seu sorriso <em>com calma</em>.</h1>
+        <p class="hero-sub">
+          Medicina dentária moderna, equipamento de última geração e uma equipa que explica cada passo antes de o dar. Sem pressa, sem sustos.
+        </p>
+        <div class="hero-cta-group">
+          <a href="https://wa.me/351915678234?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20consulta" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+            Marcar pelo WhatsApp
+          </a>
+          <a href="#tratamentos" class="btn btn-outline">Ver tratamentos</a>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="trust-num">18+</span>
+            <span class="trust-label">anos de experiência</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">6.000+</span>
+            <span class="trust-label">pacientes tratados</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-num">4.9★</span>
+            <span class="trust-label">avaliação Google</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-img"></div>
+        <div class="hero-float-card">
+          <div class="hero-float-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          </div>
+          <div class="hero-float-text">
+            <strong>Resposta em 24h</strong>
+            marcações via WhatsApp
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section class="section services" id="tratamentos">
+  <div class="container">
+    <div class="section-eyebrow">— Tratamentos</div>
+    <h2>Tudo o que o seu sorriso <em>precisa</em>.</h2>
+    <p class="section-intro">
+      Da consulta de rotina aos tratamentos mais avançados, tudo debaixo do mesmo tecto.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Dentisteria Geral</h3>
+        <p>Consultas de rotina, destartarizações, obturações e prevenção. A base de uma boca saudável.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Implantologia</h3>
+        <p>Substituição de dentes em falta com implantes de titânio e tecnologia de planeamento 3D.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3>Ortodontia</h3>
+        <p>Aparelho fixo tradicional ou alinhadores invisíveis, para todas as idades.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4 2.3-7.4-6-4.6h7.6z"/></svg>
+        </div>
+        <h3>Branqueamento</h3>
+        <p>Branqueamento profissional em consultório ou com kit para usar em casa, com acompanhamento.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="15" r="2"/><path d="M4 20L20 4"/></svg>
+        </div>
+        <h3>Odontopediatria</h3>
+        <p>Consultas pensadas para crianças, num ambiente calmo e sem stress para pequenos e pais.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>Urgências</h3>
+        <p>Dor de dentes não espera. Atendimento prioritário no mesmo dia para situações urgentes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORQUÊ ESCOLHER-NOS -->
+<section class="section">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img"></div>
+      <div>
+        <div class="section-eyebrow">— Porquê a Sorriso Novo</div>
+        <h2>Cuidado clínico, <em>sem ansiedade</em>.</h2>
+        <p style="color: var(--ink-soft); font-size: 16px; margin-bottom: 8px;">
+          Sabemos que ir ao dentista não é o programa preferido de ninguém. Por isso pensámos em cada detalhe.
+        </p>
+
+        <ul class="why-list">
+          <li>
+            <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="why-text">
+              <strong>Equipamento de última geração</strong>
+              <span>Raio-x digital de baixa radiação e planeamento 3D para diagnósticos precisos.</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="why-text">
+              <strong>Explicamos antes de agir</strong>
+              <span>Nunca fazemos nada sem lhe mostrar o raio-x e explicar as opções com calma.</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="why-text">
+              <strong>Planos de pagamento flexíveis</strong>
+              <span>Tratamentos mais longos podem ser divididos em prestações, sem juros.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE / EQUIPA -->
+<section class="section about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img"></div>
+      <div class="about-text">
+        <div class="section-eyebrow">— A nossa equipa</div>
+        <h2>Dra. Marta <em>Oliveira</em></h2>
+        <p>
+          Formada pela Faculdade de Medicina Dentária da Universidade de Lisboa, com mais de 18 anos de prática clínica e especialização em implantologia e reabilitação oral.
+        </p>
+        <p>
+          Fundou a Sorriso Novo com um objectivo simples: criar uma clínica onde os pacientes se sentem ouvidos, não apressados. Hoje a equipa conta com 4 dentistas especializados e uma assistente dedicada a cada consulta.
+        </p>
+
+        <div class="about-cred">
+          <div class="cred-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 3 2 6 2s6-1 6-2v-5"/></svg>
+            <span>Ordem dos Médicos Dentistas</span>
+          </div>
+          <div class="cred-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8 14l-2 8 6-3 6 3-2-8"/></svg>
+            <span>Especialização em Implantologia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">— Depoimentos</div>
+    <h2>O que dizem os <em>pacientes</em>.</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Tinha muito medo de dentista e a equipa foi incrivelmente paciente comigo. Expliquei o meu receio e adaptaram tudo ao meu ritmo."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div>
+            <div class="author-name">Catarina M.</div>
+            <div class="author-detail">Paciente desde 2021</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Fiz implantes e o acompanhamento foi impecável do início ao fim. Sempre disponíveis para tirar dúvidas pelo WhatsApp."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div>
+            <div class="author-name">Rui P.</div>
+            <div class="author-detail">Paciente desde 2019</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Levo os meus filhos aqui desde pequenos. A Dra. Marta tem um jeito incrível com crianças, nunca tivemos um choro sequer."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div>
+            <div class="author-name">Sofia A.</div>
+            <div class="author-detail">Paciente desde 2020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section services">
+  <div class="container">
+    <div class="section-eyebrow">— Perguntas frequentes</div>
+    <h2>Dúvidas <em>comuns</em>.</h2>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Os tratamentos doem?
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          Usamos anestesia local em todos os procedimentos que possam causar desconforto, e trabalhamos com técnicas modernas que minimizam a sensação de dor. Se tiver ansiedade, diga-nos — adaptamos o ritmo da consulta.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Aceitam seguros de saúde?
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          Trabalhamos com a maioria dos seguros de saúde e planos dentários em Portugal. Traga o seu cartão à primeira consulta e verificamos a cobertura na hora.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Preciso de referência médica?
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          Não. Pode marcar consulta directamente connosco, sem necessidade de referência de outro médico.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Como funciona uma urgência?
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          Ligue ou mande mensagem pelo WhatsApp assim que sentir dor. Reservamos sempre espaço na agenda do próprio dia para situações urgentes.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Quanto custa uma primeira consulta?
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          A primeira consulta inclui avaliação completa e plano de tratamento personalizado. Contacte-nos pelo WhatsApp para o valor actualizado e disponibilidade.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section contact">
+  <div class="container">
+    <div class="section-eyebrow">— Marque a sua consulta</div>
+    <h2>Vamos cuidar do seu <em>sorriso</em>.</h2>
+
+    <div class="contact-grid" style="margin-top: 40px;">
+      <div>
+        <div class="contact-block">
+          <div class="contact-block-label">Morada</div>
+          <div class="contact-block-value">Av. da República 45, 1º<br>1050-187 Lisboa</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">WhatsApp</div>
+          <a href="https://wa.me/351915678234" class="contact-block-value">915 678 234</a>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Horário</div>
+          <div class="contact-block-value">Seg-Sex: 9h-19h<br>Sáb: 9h-13h · Urgências todos os dias</div>
+        </div>
+
+        <div class="contact-cta">
+          <a href="https://wa.me/351915678234?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20consulta" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+            Marcar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <a href="https://www.google.com/maps/search/?api=1&query=Av.+da+Rep%C3%BAblica+45%2C+Lisboa" target="_blank" rel="noopener" class="map-card">
+        <div class="map-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="map-card-title">Av. da República 45, Lisboa</div>
+        <div class="map-card-sub">Toque para abrir no Google Maps</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Clínica Sorriso Novo — Lisboa · NIF 245 678 901 · <span class="footer-built">Site feito por <a href="https://fjfdigital.pt">FJF Digital</a></span>
+  </div>
+</footer>
+
+<a href="https://wa.me/351915678234" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+</body>
+</html>
